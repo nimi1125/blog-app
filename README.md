@@ -25,11 +25,12 @@ docker run --rm \
     -u "$(id -u):$(id -g)" \
     -v "$(pwd):/var/www/html" \
     -w /var/www/html \
-    laravelsail/php82-composer:latest \
+    laravelsail/php81-composer:latest \
     composer install --ignore-platform-reqs
 ```
 
 **4. Dockerコンテナ起動**
+
 ※初回は20分くらい時間がかかります。
 ```
 ./vendor/bin/sail up -d
@@ -54,6 +55,7 @@ docker run --rm \
 ```
 
 **8. おまけ**
+
 以下でエイリアスを変更しておくと、sailコマンドがsail~で実行できるようになる
 例：sail artisan migrate
 ```
