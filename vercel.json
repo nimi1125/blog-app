@@ -22,6 +22,7 @@
             "dest": "/api/index.php"
         }
     ],
+    "buildCommand": "./.vercel/build.sh",
     "env": {
         "APP_NAME": "Laravel Vercel",
         "APP_DEBUG": "false",
