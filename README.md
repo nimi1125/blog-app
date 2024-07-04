@@ -53,7 +53,7 @@ docker run --rm \
 ./vendor/bin/sail artisan migrate
 ```
 
-**おまけ**
+**8. おまけ**
 以下でエイリアスを変更しておくと、sailコマンドがsail~で実行できるようになる
 例：sail artisan migrate
 ```
