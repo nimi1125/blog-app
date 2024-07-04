@@ -1,6 +1,7 @@
 # ドキュメント
 
 ## 環境構築
+参考：https://fadotech.com/laravel10-sail-clone/
 
 **1. git clone**
 
@@ -8,24 +9,55 @@
 git clone ~~~
 ```
 
-**2. パッケージインストール**
+**2. 環境変数ファイルの作成**
 
 clone したディレクトリへ移動
 
 ```
-npm install
-```
-
-**3. 環境変数ファイルの作成**
-
-```
+cd ~~~
 cp .env.example .env
 ```
 
-**4. 起動**
+**3. パッケージインストール**
 
 ```
-npm run dev
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php82-composer:latest \
+    composer install --ignore-platform-reqs
+```
+
+**4. Dockerコンテナ起動**
+※初回は20分くらい時間がかかります。
+```
+./vendor/bin/sail up -d
+```
+
+**5. APP_KEYの生成**
+```
+./vendor/bin/sail artisan key:generate
+```
+
+**6. フロントパッケージインストール**
+
+```
+./vendor/bin/sail npm install
+./vendor/bin/sail npm run dev
+```
+
+**7. マイグレーション**
+
+```
+./vendor/bin/sail artisan migrate
+```
+
+**おまけ**
+以下でエイリアスを変更しておくと、sailコマンドがsail~で実行できるようになる
+例：sail artisan migrate
+```
+alias sail="vendor/bin/sail"
 ```
 
 ## 開発 Tips
