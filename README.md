@@ -1,66 +1,129 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ドキュメント
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 環境構築
 
-## About Laravel
+**1. git clone**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```
+git clone ~~~
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**2. パッケージインストール**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+clone したディレクトリへ移動
 
-## Learning Laravel
+```
+npm install
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**3. 環境変数ファイルの作成**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```
+cp .env.example .env
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**4. 起動**
 
-## Laravel Sponsors
+```
+npm run dev
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 開発 Tips
 
-### Premium Partners
+### Issue
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- Issue にてタスクや問題を書いてください。
+- IssueTemplate を使ってください。（該当のテンプレートがない場合は作成してください）
+- 重複があると煩雑になるので、関連 Issue を探して#〇〇と参照を入れてください。
+- assign、tag をつけてください。
+- バグや表示崩れについては、Issue テンプレート`Bug report`で作成してください。
+  - 機能実装やテストで見つけ次第、どんどん作成してください。
+  - 必要であれば、MTG 内で修正対応について議論してください。
+- 作成した Issue を必ず MTG で、いつ対応するのかをチームで決めましょう。
 
-## Contributing
+### PullRequest
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**1. プルリクエスト前の作業**
 
-## Code of Conduct
+プルリクエストを上げる前に必ず、自分が作業を行なっているブランチで `git pull origin main` を行うこと。<br/>
+もし、コンフリクトが発生したら、ローカル上で解決する、解決の仕方がわからない場合は、メンバーに相談すること。
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**2. `git pull origin main` を行なった後の作業**
 
-## Security Vulnerabilities
+remote に変更があった場合は、 `git pull origin main` のコマンドを実行し、remote の変更を取り込む。<br/>
+package に更新がないか、確認するため、 `npm install` コマンドを実行する。<br/>
+`found 0 vulnerabilities` と表示されれば OK。
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**3. プルリクエスト作成時**
 
-## License
+- `PullRequestTemplate`を使ってください。
+- 作ったブランチから main ブランチへマージするプルリクを作ってください。
+- プルリクに issue 番号を紐付けてください。
+- レビュアーに assign つけてください。（複数つけても OK）
+- レビュー依頼の際は、PR 内にメンションコメント＆念の為 Slack にてレビュアーに声掛けお願いします。
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**4. マージ**
+
+- マージはスカッシュコミット（プルリク内のコミットを 1 つににまとめてコミット）でお願いします。
+  - マージの際に`Marge Pull Request`ではなく`Squash and merge`を選んでマージしてください。
+
+### Branch
+
+### ブランチ命名規則（**プレフィックス**をつける）
+
+- feature: 機能追加
+- fix: コード修正
+- bug: バグ修正
+
+※ 該当項目がない場合は適宜追加
+
+**＜例＞**
+
+```
+git checkout -b 'feature/todotop_layout'
+git checkout -b 'fix/todotop_layout'
+git checkout -b 'bug/todotop_layout'
+```
+
+### Commit
+
+### コミットメッセージ
+
+- 日本語もしくは英語で端的に
+
+**＜例＞**
+
+```
+git commit -m 'Top画面 作成'
+git commit -m 'create top layout'
+```
+
+## 使用技術
+
+- HTML (https://developer.mozilla.org/ja/docs/Web/HTML)
+- CSS (https://developer.mozilla.org/ja/docs/Web/CSS)
+- JavaScript (https://developer.mozilla.org/ja/docs/Web/JavaScript)
+- TypeScript (https://www.typescriptlang.org)
+- React.js (https://ja.react.dev)
+- Next.js (https://nextjs.org)
+- Firebase (https://firebase.google.com)
+- Vercel (https://vercel.com)
+- GitHub (https://github.co.jp)
+
+## 推奨 VScode 拡張機能
+
+- [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph&ssr=false#qna) コミットの一覧 → 詳細を閲覧できる
+- [Git History](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory) ファイルの履歴などを確認できる
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) 視覚的にリポジトリ、ブランチ、ファイル、コミットの状態を確認や操作することができる
+
+## バージョン情報
+
+[volta](https://volta.sh) で管理
+
+```
+"node": "20以上",
+https://nodejs.org/ja
+
+"npm": "10以上"
+https://docs.npmjs.com/cli/v9/commands/npm-version
+```
