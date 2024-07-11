@@ -1,6 +1,10 @@
 # ドキュメント
 
 ## 環境構築
+
+構築環境
+- docker
+- laravel 10（sail利用）
 参考：https://fadotech.com/laravel10-sail-clone/
 
 **1. git clone**
@@ -139,8 +143,6 @@ git commit -m 'create top layout'
 - JavaScript (https://developer.mozilla.org/ja/docs/Web/JavaScript)
 - TypeScript (https://www.typescriptlang.org)
 - React.js (https://ja.react.dev)
-- Next.js (https://nextjs.org)
-- Firebase (https://firebase.google.com)
 - Vercel (https://vercel.com)
 - GitHub (https://github.co.jp)
 
