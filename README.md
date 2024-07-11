@@ -2,30 +2,68 @@
 
 ## 環境構築
 
+構築環境
+- docker
+- laravel 10（sail利用）
+参考：https://fadotech.com/laravel10-sail-clone/
+
 **1. git clone**
 
 ```
 git clone ~~~
 ```
 
-**2. パッケージインストール**
+**2. 環境変数ファイルの作成**
 
 clone したディレクトリへ移動
 
 ```
-npm install
-```
-
-**3. 環境変数ファイルの作成**
-
-```
+cd ~~~
 cp .env.example .env
 ```
 
-**4. 起動**
+**3. パッケージインストール**
 
 ```
-npm run dev
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php81-composer:latest \
+    composer install --ignore-platform-reqs
+```
+
+**4. Dockerコンテナ起動**
+
+※初回は20分くらい時間がかかります。
+```
+./vendor/bin/sail up -d
+```
+
+**5. APP_KEYの生成**
+```
+./vendor/bin/sail artisan key:generate
+```
+
+**6. フロントパッケージインストール**
+
+```
+./vendor/bin/sail npm install
+./vendor/bin/sail npm run dev
+```
+
+**7. マイグレーション**
+
+```
+./vendor/bin/sail artisan migrate
+```
+
+**8. おまけ**
+
+以下でエイリアスを変更しておくと、sailコマンドがsail~で実行できるようになる
+例：sail artisan migrate
+```
+alias sail="vendor/bin/sail"
 ```
 
 ## 開発 Tips
@@ -105,8 +143,6 @@ git commit -m 'create top layout'
 - JavaScript (https://developer.mozilla.org/ja/docs/Web/JavaScript)
 - TypeScript (https://www.typescriptlang.org)
 - React.js (https://ja.react.dev)
-- Next.js (https://nextjs.org)
-- Firebase (https://firebase.google.com)
 - Vercel (https://vercel.com)
 - GitHub (https://github.co.jp)
 
