@@ -152,14 +152,3 @@ git commit -m 'create top layout'
 - [Git History](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory) ファイルの履歴などを確認できる
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) 視覚的にリポジトリ、ブランチ、ファイル、コミットの状態を確認や操作することができる
 
-## バージョン情報
-
-[volta](https://volta.sh) で管理
-
-```
-"node": "20以上",
-https://nodejs.org/ja
-
-"npm": "10以上"
-https://docs.npmjs.com/cli/v9/commands/npm-version
-```
