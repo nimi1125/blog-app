@@ -7,8 +7,8 @@
     <button>Search</button>
 </div>
 
-<div class="container">
-    <div class="row">
+<section class="container">
+    <div class="row row">
         <div class="postArea col-md-4 col-12">
             <div class="postBox">
                 <div class="postImgItme">
@@ -83,4 +83,4 @@
         </div>
 
     </div>
-</div>
+</section>

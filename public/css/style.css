@@ -6,7 +6,7 @@ img{
     height: auto;
 }
 
-/* トップページ */
+/* blog */
 
 .hedArea {
     display: flex;
@@ -69,6 +69,49 @@ img{
     margin-top: 0;
 }
 
+/* blogDetail　*/
+
+.blogDetailArea {
+    background: #dfdfdf;
+    border-radius: 25px;
+    padding: 2%;
+}
+
+.blogDetailUserImgBox {
+    width: 60px;
+    height: 60px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.blogDetailImgBox {
+    min-height: 400px;
+    background: #333;
+    margin-top: 20px;
+}
+
+.blogDetailTxtBox{
+    margin-top: 20px;
+}
+
+.morepostImgBox {
+    min-height: 150px;
+    width: 100%;
+    margin: auto;
+    background: #dfdfdf;
+    border: solid 1px #333;
+}
+
+.commentTxtArea {
+    width: 100%;
+}
+
+.commentUserImgBox{
+    width: 80px;
+    height: 80px;
+    background: #333;
+    border-radius: 50%;
+}
 
 @media screen and (min-width:768px) {
     .postArea{
