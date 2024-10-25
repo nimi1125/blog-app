@@ -53,7 +53,7 @@
     </div>
 </section>
 
-<section class="container commentsSec mt-5">
+<section class="commentsSec ml-auto mr-auto mt-5">
     <div class="row">
         <div class="col-9">
             <textarea name="comment" class="commentTxtArea"></textarea>
@@ -62,10 +62,10 @@
             <button type="submit" class="btn btn-primary">Comment</button>
         </div>
     </div>
-    <div class="commentArea">
+    <div class="commentArea mt-3">
         <div class="row">
             <div class="col-2">
-                <div class="commentUserImgBox">
+                <div class="commentUserImgBox mx-auto">
                     <img src="" alt="">
                 </div>
             </div>

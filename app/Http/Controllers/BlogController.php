@@ -10,8 +10,20 @@ class BlogController extends Controller
     {
         return view('blog.index');
     }
+
     public function detail()
     {
         return view('blog.detail');
     }
+
+    public function profile()
+    {
+        return view('blog.profile');
+    }
+
+    public function edit()
+    {
+        return view('blog.write');
+    }
+
 }

@@ -32,6 +32,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blogdetail', [BlogController::class, 'detail']);
 Route::get('/write', [BlogController::class, 'edit']);
-Route::get('/porofile', [BlogController::class, 'porofile']);
+Route::get('/profile', [BlogController::class, 'profile']);
 
 require __DIR__.'/auth.php';
