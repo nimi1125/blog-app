@@ -29,9 +29,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/blog', [BlogController::class, 'index']);
-Route::get('/blogdetail', [BlogController::class, 'detail']);
-Route::get('/write', [BlogController::class, 'edit']);
-Route::get('/profile', [BlogController::class, 'profile']);
+Route::get('/blog', function () {
+    return view('index');
+});
+
+Route::get('//blogdetail', function () {
+    return view('detail');
+});
+
+Route::get('/write', function () {
+    return view('edit');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
 
 require __DIR__.'/auth.php';
