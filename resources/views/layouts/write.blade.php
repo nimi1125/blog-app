@@ -14,9 +14,6 @@
                 file:bg-blue-50 file:text-blue-700
                 hover:file:bg-blue-100
                 cursor-pointer">
-            <button type="submit" class="writeImgBtn">
-                Upload Image
-            </button>
         </div>
         <div class="writeTxtBox">
             <textarea name="comment" class="w-full h-32 p-3 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your comment here..."></textarea>

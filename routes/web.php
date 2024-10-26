@@ -30,19 +30,19 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/blog', function () {
-    return view('index');
+    return view('welcome');
 });
 
 Route::get('//blogdetail', function () {
-    return view('detail');
+    return view('layouts.detail');
 });
 
 Route::get('/write', function () {
-    return view('edit');
+    return view('layouts.write');
 });
 
 Route::get('/profile', function () {
-    return view('profile');
+    return view('layouts.profile');
 });
 
 require __DIR__.'/auth.php';
