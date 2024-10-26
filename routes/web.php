@@ -29,11 +29,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/login', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'create'])->name('login');
+Route::post('/login', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store']);
+Route::get('/register', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'create'])->name('register');
+Route::post('/register', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'store']);
+
 Route::get('/blog', function () {
     return view('welcome');
 });
 
-Route::get('//blogdetail', function () {
+Route::get('/blogdetail', function () {
     return view('layouts.detail');
 });
 
@@ -42,7 +47,7 @@ Route::get('/write', function () {
 });
 
 Route::get('/profile', function () {
-    return view('layouts.profile');
+    return view('dashboard');
 });
 
 require __DIR__.'/auth.php';
