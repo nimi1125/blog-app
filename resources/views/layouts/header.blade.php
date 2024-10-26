@@ -4,7 +4,7 @@
             <h1>LOGO</h1>
         </div>
         @if (Route::has('login'))
-            <div class="flex">
+            <div class="hedBtnArea">
                 @auth
                     <div class="hedBtnBox">
                         <a href="{{ url('/dashboard') }}" class="">Dashboard</a>
