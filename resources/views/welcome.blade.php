@@ -1,86 +1,14 @@
+@extends('layouts.guest')
 
-@extends('layouts.app')
-
-
-<div class="container searchArea mb-5">
-    <input type="search" id="site-search" name="q"/>
-    <button>Search</button>
+@section('content')
+<div class="container mx-auto mb-5">
+    <div class="flex space-x-2">
+        <input type="search" id="site-search" name="q" class="border border-gray-300 rounded-md p-2 flex-grow" placeholder="Search"/>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Search</button>
+    </div>
 </div>
 
-<section class="container">
-    <div class="row row">
-        <div class="postArea col-md-4 col-12">
-            <div class="postBox">
-                <div class="postImgItme">
-                    <img src="" alt="">
-                </div>
-                <div class="postTxtItem">
-                    <div class="d-flex justify-content-between">
-                        <h4 class="postTit">Post Title</h4>
-                        <p class="categoryTxt">Category</p>
-                    </div>
-                    <div class="postSubTxtBox">
-                        <p class="author d-inline-block">
-                            Author
-                        </p>
-                        <p class="updateTime d-inline-block">
-                            a min ago
-                        </p>
-                    </div>
-                    <div class="mainTxt">
-                        <p>ここにテキストが入ります。何行かだけ表示させるならCSSかjsで調整必要</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="postArea col-md-4 col-12">
-            <div class="postBox">
-                <div class="postImgItme">
-                    <img src="" alt="">
-                </div>
-                <div class="postTxtItem">
-                    <div class="d-flex justify-content-between">
-                        <h4 class="postTit">Post Title</h4>
-                        <p class="categoryTxt">Category</p>
-                    </div>
-                    <div class="postSubTxtBox">
-                        <p class="author d-inline-block">
-                            Author
-                        </p>
-                        <p class="updateTime d-inline-block">
-                            a min ago
-                        </p>
-                    </div>
-                    <div class="mainTxt">
-                        <p>ここにテキストが入ります。何行かだけ表示させるならCSSかjsで調整必要</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="postArea col-md-4 col-12">
-            <div class="postBox">
-                <div class="postImgItme">
-                    <img src="" alt="">
-                </div>
-                <div class="postTxtItem">
-                    <div class="d-flex justify-content-between">
-                        <h4 class="postTit">Post Title</h4>
-                        <p class="categoryTxt">Category</p>
-                    </div>
-                    <div class="postSubTxtBox">
-                        <p class="author d-inline-block">
-                            Author
-                        </p>
-                        <p class="updateTime d-inline-block">
-                            a min ago
-                        </p>
-                    </div>
-                    <div class="mainTxt">
-                        <p>ここにテキストが入ります。何行かだけ表示させるならCSSかjsで調整必要</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
+<section class="container mx-auto">
+    @include('layouts.postbox')
 </section>
+@endsection
