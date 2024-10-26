@@ -25,7 +25,7 @@ class CommentFactory extends Factory
         return [
             'user_id' => $users[array_rand($users)],
             'post_id' => $posts[array_rand($posts)],
-            'content' => $this->faker->text(50),
+            'content' => $this->faker->realText(50),
         ];
     }
 }

@@ -27,8 +27,8 @@ class PostFactory extends Factory
         return [
             'user_id' => $users[array_rand($users)],
             'category_id' => $categories[array_rand($categories)],
-            'title' => $this->faker->sentence(10),
-            'content' => $this->faker->text(100),
+            'title' => $this->faker->realText(10),
+            'content' => $this->faker->realText(100),
             'image_path' => 'https://picsum.photos/200/300',
         ];
     }
