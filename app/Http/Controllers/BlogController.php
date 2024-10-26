@@ -8,22 +8,22 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return view('blog.index');
+        return view('welcome');
     }
 
     public function detail()
     {
-        return view('blog.detail');
+        return view('layouts.detail');
     }
 
     public function profile()
     {
-        return view('blog.profile');
+        return view('dashboard');
     }
 
     public function edit()
     {
-        return view('blog.write');
+        return view('layouts.write');
     }
 
 }
