@@ -17,31 +17,47 @@
         @vite(['resources/css/style.css','resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="antialiased">
-        <div class="relative min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                <div class="flex justify-between h-16">
+                    <div class="flex">
+                        <!-- Logo -->
+                        <div class="shrink-0 flex items-center">
+                            <a href="{{ route('home') }}">
+                                <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                            </a>
+                        </div>
+
+                        <!-- Navigation Links -->
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                                {{ __('Home') }}
+                            </x-nav-link>
+                        </div>
+                    </div>
+                    <div class="relative min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+                        @if (Route::has('login'))
+                            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                                @auth
+                                    <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                    @endif
+                                @endauth
+                            </div>
                         @endif
-                    @endauth
+                    </div>
                 </div>
-            @endif
-
-            <div class="container mx-auto mt-5 mb-5">
-                <div class="flex space-x-2">
-                    <input type="search" id="site-search" name="q" class="border border-gray-300 rounded-md p-2 flex-grow" placeholder="Search"/>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Search</button>
-                </div>
+                <main>
+                    <section class="container mx-auto">
+                        @include('layouts.postbox')
+                    </section>
+                </main>
             </div>
-
-            <section class="container mx-auto">
-                @include('layouts.postbox')
-            </section>
         </div>
     </body>
 </html>
