@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -26,6 +26,27 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::get('/login', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'create'])->name('login');
+Route::post('/login', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store']);
+Route::get('/register', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'create'])->name('register');
+Route::post('/register', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'store']);
+
+Route::get('/blog', function () {
+    return view('welcome');
+});
+
+Route::get('/blogdetail', function () {
+    return view('layouts.detail');
+});
+
+Route::get('/write', function () {
+    return view('layouts.write');
+});
+
+Route::get('/myblog', function () {
+    return view('layouts.myblog');
 });
 
 require __DIR__.'/auth.php';
