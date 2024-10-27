@@ -45,7 +45,7 @@ Route::get('/write', function () {
     return view('layouts.write');
 });
 
-Route::get('/profile', function () {
+Route::get('/mypost', function () {
     return view('dashboard');
 });
 

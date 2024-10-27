@@ -1,6 +1,6 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-5">
-    <div class="postArea bg-white rounded-lg overflow-hidden">
-        <div class="postBox">
+    <div class="postArea rounded-lg overflow-hidden">
+        <div class="postBox bg-white">
             <div class="postImgItem">
                 <img src="" alt="" class="w-full h-48 object-cover">
             </div>
@@ -20,8 +20,8 @@
         </div>
     </div>
 
-    <div class="postArea bg-white rounded-lg overflow-hidden">
-        <div class="postBox">
+    <div class="postArea rounded-lg overflow-hidden">
+        <div class="postBox bg-white">
             <div class="postImgItem">
                 <img src="" alt="" class="w-full h-48 object-cover">
             </div>
@@ -42,8 +42,8 @@
     </div>
 
     <!-- 3rd post area -->
-    <div class="postArea bg-white rounded-lg overflow-hidden">
-        <div class="postBox">
+    <div class="postArea rounded-lg overflow-hidden">
+        <div class="postBox bg-white">
             <div class="postImgItem">
                 <img src="" alt="" class="w-full h-48 object-cover">
             </div>
@@ -63,8 +63,8 @@
         </div>
     </div>
 
-    <div class="postArea bg-white rounded-lg overflow-hidden">
-        <div class="postBox">
+    <div class="postArea rounded-lg overflow-hidden">
+        <div class="postBox bg-white">
             <div class="postImgItem">
                 <img src="" alt="" class="w-full h-48 object-cover">
             </div>
