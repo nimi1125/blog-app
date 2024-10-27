@@ -46,7 +46,7 @@ Route::get('/write', function () {
 });
 
 Route::get('/mypost', function () {
-    return view('dashboard');
+    return view('layouts.mypost');
 });
 
 require __DIR__.'/auth.php';
