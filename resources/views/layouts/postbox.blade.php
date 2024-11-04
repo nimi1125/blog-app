@@ -6,10 +6,10 @@
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-5">
-    <div class="postArea rounded-lg overflow-hidden">
-        <div class="postBox bg-white">
+    <div class="postArea">
+        <div class="postBox bg-white rounded-lg overflow-hidden">
             <div class="postImgItem">
-                <img src="" alt="" class="w-full h-48 object-cover">
+                <img src="" alt="image" class="object-cover w-full h-full">
             </div>
             <div class="postTxtItem p-4">
                 <div class="flex justify-between items-center">
@@ -27,10 +27,10 @@
         </div>
     </div>
 
-    <div class="postArea rounded-lg overflow-hidden">
-        <div class="postBox bg-white">
+    <div class="postArea">
+        <div class="postBox bg-white rounded-lg overflow-hidden">
             <div class="postImgItem">
-                <img src="" alt="" class="w-full h-48 object-cover">
+                <img src="" alt="image" class="object-cover w-full h-full">
             </div>
             <div class="postTxtItem p-4">
                 <div class="flex justify-between items-center">
@@ -49,10 +49,10 @@
     </div>
 
     <!-- 3rd post area -->
-    <div class="postArea rounded-lg overflow-hidden">
-        <div class="postBox bg-white">
+    <div class="postArea">
+        <div class="postBox bg-white rounded-lg overflow-hidden">
             <div class="postImgItem">
-                <img src="" alt="" class="w-full h-48 object-cover">
+                <img src="" alt="image" class="object-cover w-full h-full">
             </div>
             <div class="postTxtItem p-4">
                 <div class="flex justify-between items-center">
@@ -70,10 +70,10 @@
         </div>
     </div>
 
-    <div class="postArea rounded-lg overflow-hidden">
-        <div class="postBox bg-white">
+    <div class="postArea">
+        <div class="postBox bg-white rounded-lg overflow-hidden">
             <div class="postImgItem">
-                <img src="" alt="" class="w-full h-48 object-cover">
+                <img src="" alt="image" class="object-cover w-full h-full">
             </div>
             <div class="postTxtItem p-4">
                 <div class="flex justify-between items-center">
