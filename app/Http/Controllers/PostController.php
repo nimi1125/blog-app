@@ -28,8 +28,20 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $posts = Post::create($request->except('_token'));
-        $posts['user_id'] = auth()->id(); 
+        // 画像処理は後ほど追加するため、デフォルトの画像パスが追加されるように調整
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+        } else {
+            $imagePath = 'images/default.jpg'; 
+        }
+
+        $post = new post;
+        $post->user_id = auth()->id();
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->category_id = $request->category_id ?? 1;// 一旦デフォルト1に設定
+        $post->image_path = $imagePath;
+        $post->save();
         return redirect()->route('dashboard');
     }
 
