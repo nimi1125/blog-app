@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    
+    protected $table = 'posts';
+    protected $fillable = ['user_id','title', 'content']; 
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function category()
+    {
+        return $this->hasOne(category::class);
+    }
 }

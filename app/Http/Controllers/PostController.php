@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\Category; 
 
 class PostController extends Controller
 {
@@ -19,7 +21,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('blog.write', compact('categories'));
     }
 
     /**
@@ -27,7 +30,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 画像処理は後ほど追加するため、デフォルトの画像パスが追加されるように調整
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+        } else {
+            $imagePath = 'images/default.jpg'; 
+        }
+
+        $post = new post;
+        $post->user_id = auth()->id();
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->category_id = $request->category_id;
+        $post->image_path = $imagePath;
+        $post->save();
+        return redirect()->route('dashboard');
     }
 
     /**
