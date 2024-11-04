@@ -16,4 +16,9 @@ class Post extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function category()
+    {
+        return $this->hasOne(category::class);
+    }
 }

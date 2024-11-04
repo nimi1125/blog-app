@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category; 
 
 class PostController extends Controller
 {
@@ -20,7 +21,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('blog.write', compact('categories'));
     }
 
     /**
@@ -39,7 +41,7 @@ class PostController extends Controller
         $post->user_id = auth()->id();
         $post->title = $request->title;
         $post->content = $request->content;
-        $post->category_id = $request->category_id ?? 1;// 一旦デフォルト1に設定
+        $post->category_id = $request->category_id;
         $post->image_path = $imagePath;
         $post->save();
         return redirect()->route('dashboard');

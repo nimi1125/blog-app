@@ -3,11 +3,23 @@
     <form method="post" action="{{ route('store') }}" enctype="multipart/form-data" class="space-y-5 mt-5">
         @csrf
         @method('PUT')    
-        <label class="text-2xl font-semibold mt-5" for="title">
-            Titles
-        </label>
-        <textarea name="title" id="title" value="{{ old('title', $post->title ?? '') }}" class="rounded-md w-full h-12 p-3 resize-none writeTitTxtArea border border-gray-300" placeholder="タイトルを入力してください"></textarea>
-        <div class="writeImgBox flex items-center space-x-3">
+        <div class="mb-4">
+            <label class="text-2xl font-semibold mt-5" for="title">
+                Titles
+            </label>
+            <textarea name="title" id="title" value="{{ old('title', $post->title ?? '') }}" class="rounded-md w-full h-12 p-3 resize-none writeTitTxtArea border border-gray-300" placeholder="タイトルを入力してください"></textarea>
+        </div>
+        <div class="mb-4">
+            <label for="inputstatus" class="block text-gray-700 font-medium mb-2">Category</label>
+            <select id="inputstatus" name="category_id" class="w-full border-gray-300 rounded">
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ old('category_id', $post->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-4 writeImgBox flex items-center space-x-3">
             <input type="file" name="avatar" class="block text-sm text-gray-500 
                 file:mr-4 file:py-2 file:px-4
                 file:rounded-lg file:border-0

@@ -41,9 +41,7 @@ Route::get('/blogdetail', function () {
     return view('layouts.detail');
 });
 
-Route::get('/write', function () {
-    return view('blog.write');
-});
+Route::get('/write', [\App\Http\Controllers\PostController::class, 'create'])->name('write');
 
 Route::put('/write', [\App\Http\Controllers\PostController::class, 'store'])->name('store');
 
