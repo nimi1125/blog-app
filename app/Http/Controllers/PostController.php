@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -19,7 +20,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('blog.write');
     }
 
     /**
@@ -27,7 +28,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $posts = Post::create($request->except('_token'));
+        $posts['user_id'] = auth()->id(); 
+        return redirect()->route('dashboard');
     }
 
     /**

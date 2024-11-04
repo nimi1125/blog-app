@@ -1,9 +1,12 @@
 <x-app-layout>
 <div class="container mx-auto px-4 py-6">
-    <h2 class="text-2xl font-semibold mt-5">
-        Title
-    </h2>
-    <form method="post" enctype="multipart/form-data" class="space-y-5 mt-5">
+    <form method="post" action="{{ route('store') }}" enctype="multipart/form-data" class="space-y-5 mt-5">
+        @csrf
+        @method('PUT')    
+        <label class="text-2xl font-semibold mt-5" for="title">
+            Titles
+        </label>
+        <textarea name="title" id="title" value="{{ old('title', $posts->title ?? '') }}" class="rounded-md w-full h-12 p-3 resize-none writeTitTxtArea border border-gray-300" placeholder="タイトルを入力してください"></textarea>
         <div class="writeImgBox flex items-center space-x-3">
             <input type="file" name="avatar" class="block text-sm text-gray-500 
                 file:mr-4 file:py-2 file:px-4
@@ -14,7 +17,7 @@
                 cursor-pointer">
         </div>
         <div class="writeTxtBox">
-            <textarea name="comment" class="w-full h-32 p-3 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your comment here..."></textarea>
+            <textarea name="blogtxt" value="{{ old('content', $posts->content ?? '') }}" class="w-full h-32 p-3 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="ブログ本文を入力してください"></textarea>
             <button type="submit" class="mt-3 createBtn">
                 Create
             </button>
