@@ -26,4 +26,7 @@
             </div>
         </div>
     @endforeach
+    <div class="col-span-1 md:col-span-3 text-center px-36 mt-2 mb-8">
+    {{ $posts->Links() }}
+    </div>
 </div>
