@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Category; 
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -13,7 +14,17 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $posts = Post::select('posts.*', 'users.name as user_name', 'categories.name as category_name')
+            ->join('users', 'users.id', '=', 'posts.user_id')
+            ->join('categories', 'categories.id', '=', 'posts.category_id')
+            ->orderBy('posts.updated_at', 'desc')
+            ->get();
+
+        if (Auth::check()) {
+            return view('dashboard', compact('posts'));
+        } else {
+            return view('welcome', compact('posts'));
+        }
     }
 
     /**
