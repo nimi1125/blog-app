@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::select('posts.id', 'posts.title', 'posts.content', 'posts.image_path', 'posts.created_at', 'posts.updated_at', 'users.name as user_name', 'categories.name as category_name')
+        $posts = Post::select('posts.*', 'users.name as user_name', 'categories.name as category_name')
             ->join('users', 'users.id', '=', 'posts.user_id')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
             ->orderBy('posts.updated_at', 'desc')
