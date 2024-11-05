@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category; 
+use App\Http\Requests\PostRequest; 
 
 class PostController extends Controller
 {
@@ -28,11 +29,11 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         // 画像処理は後ほど追加するため、デフォルトの画像パスが追加されるように調整
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
+        if ($request->hasFile('image_path')) {
+            $imagePath = $request->file('image_path')->store('images', 'public');
         } else {
             $imagePath = 'images/default.jpg'; 
         }
