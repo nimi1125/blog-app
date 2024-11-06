@@ -29,6 +29,6 @@
 </div>
 
 {{-- ToDo: ページネーションのCSSがうまく反映されない --}}
-<div class="text-center px-36 mt-2 mb-8 pagenation">
+<div class="text-center px-36 mt-2 pagenation">
     {{ $posts->Links() }}
 </div>
