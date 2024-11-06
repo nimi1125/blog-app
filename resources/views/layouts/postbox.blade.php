@@ -26,7 +26,9 @@
             </div>
         </div>
     @endforeach
-    <div class="col-span-1 md:col-span-3 text-center px-36 mt-2 mb-8">
+</div>
+
+{{-- ToDo: ページネーションのCSSがうまく反映されない --}}
+<div class="text-center px-36 mt-2 mb-8 pagenation">
     {{ $posts->Links() }}
-    </div>
 </div>
