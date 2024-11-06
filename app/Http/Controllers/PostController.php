@@ -4,13 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-<<<<<<< HEAD
 use App\Models\Category; 
 use App\Http\Requests\PostRequest; 
-=======
-use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
->>>>>>> origin
 
 class PostController extends Controller
 {
