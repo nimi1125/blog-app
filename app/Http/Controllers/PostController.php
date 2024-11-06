@@ -19,7 +19,7 @@ class PostController extends Controller
             ->join('users', 'users.id', '=', 'posts.user_id')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
             ->orderBy('posts.updated_at', 'desc')
-            ->get();
+            ->paginate(9);
 
         if (Auth::check()) {
             return view('dashboard', compact('posts'));

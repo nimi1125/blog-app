@@ -73,6 +73,11 @@ img{
     margin-top: 0;
 }
 
+/* ToDo: ページネーションのCSSがうまく反映されない */
+.pagenation > div > .hidden{
+    flex-direction:column-reverse !important;
+}
+
 /* blogDetail　*/
 
 .blogDetailArea {
