@@ -27,3 +27,8 @@
         </div>
     @endforeach
 </div>
+
+{{-- ToDo: ページネーションのCSSがうまく反映されない --}}
+<div class="text-center px-36 mt-2 pagenation">
+    {{ $posts->Links() }}
+</div>
