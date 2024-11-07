@@ -180,6 +180,10 @@ img{
     margin: 20px auto 0;
 }
 
+.writeContentHi{
+    height: 250px;
+}
+
 .createBtn {
     background: #108fa8;
     color: #fff;
@@ -208,6 +212,10 @@ img{
     .createBtn {
         max-width: 350px;
         margin: 0 0 0 auto;
+    }
+
+    .writeContentHi{
+        height: 400px;
     }
 
 }

@@ -38,7 +38,7 @@
                 <div class="text-red-600">{{ $message }}</div>
             @enderror
         <div class="writeTxtBox">
-            <textarea name="content" value="{{ old('content', $post->content ?? '') }}" class="w-full h-32 p-3 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="ブログ本文を入力してください"></textarea>
+            <textarea name="content" value="{{ old('content', $post->content ?? '') }}" class="writeContentHi w-full p-3 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="ブログ本文を入力してください"></textarea>
             @error('content')
                 <div class="text-red-600">{{ $message }}</div>
             @enderror
