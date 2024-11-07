@@ -180,6 +180,10 @@ img{
     margin: 20px auto 0;
 }
 
+.writeContentHi{
+    height: 250px;
+}
+
 .createBtn {
     background: #108fa8;
     color: #fff;
@@ -187,8 +191,8 @@ img{
     padding: 5px 20px;
     display: block;
     width: 100%;
-    max-width: 300px;
-    margin: 0 0 0 auto;
+    max-width: inherit;
+    margin: 0 auto;
 }
 
 .loginSec{
@@ -196,6 +200,7 @@ img{
     padding: 100px 20px 0;
 }
 
+/* min-width:768px　ここから　*/
 @media screen and (min-width:768px) {
 
     /* blog */
@@ -203,4 +208,15 @@ img{
         margin-top: 0;
     }
 
+    /* write */
+    .createBtn {
+        max-width: 350px;
+        margin: 0 0 0 auto;
+    }
+
+    .writeContentHi{
+        height: 400px;
+    }
+
 }
+/* min-width:768px　ここまで　*/
