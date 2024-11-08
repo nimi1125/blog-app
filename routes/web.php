@@ -36,9 +36,7 @@ Route::get('/blog', function () {
     return view('welcome');
 });
 
-Route::get('/blogdetail', function () {
-    return view('layouts.detail');
-});
+Route::get('/blogdetail/{id}', [\App\Http\Controllers\PostController::class, 'show'])->name('blogdetail');
 
 Route::get('/write', [\App\Http\Controllers\PostController::class, 'create'])->name('write');
 

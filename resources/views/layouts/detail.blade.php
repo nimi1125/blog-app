@@ -1,36 +1,27 @@
 <x-app-layout>
-<section class="container mx-auto mt-5 px-4">
-    <div class="blogDetailArea">
-        <!-- Blog Title and User Image -->
-        <div class="blogDetailTitBox flex justify-between items-center">
-            <h2 class="text-2xl font-semibold">Blog Title</h2>
-            <div class="w-12 h-12 rounded-full overflow-hidden">
-                <img src="" alt="User Image" class="w-full h-full object-cover">
+    <section class="container mx-auto mt-5 px-4">
+        <div class="blogDetailArea">
+            <div class="blogDetailTitBox flex justify-between items-center">
+                <h2 class="text-2xl font-semibold">{{ $post->title }}</h2>
+                <div class="w-12 h-12 rounded-full overflow-hidden">
+                    <img src="{{ asset('storage/image/person.jpg') }}" alt="User Image" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <div class="blogDetailImgBox mt-5">
+                <img src="{{ asset($post->image_path) }}" alt="Blog Image" class="w-full h-72 object-cover rounded-lg">
+            </div>
+
+            <div class="blogDetailTxtBox mt-5">
+                <p class="text-gray-700 leading-relaxed mt-2">
+                    {{ $post->content }}
+                </p>
             </div>
         </div>
-
-        <!-- Blog Main Image -->
-        <div class="blogDetailImgBox mt-5">
-            <img src="" alt="Blog Image" class="w-full h-72 object-cover rounded-lg">
-        </div>
-
-        <!-- Blog Content -->
-        <div class="blogDetailTxtBox mt-5">
-            <h3 class="text-xl font-medium">見出しとか</h3>
-            <p class="text-gray-700 leading-relaxed mt-2">
-                ブログ本文が入ります。ブログ本文が入ります。ブログ本文が入ります。<br>
-                ブログ本文が入ります。ブログ本文が入ります。ブログ本文が入ります。<br>
-                ブログ本文が入ります。ブログ本文が入ります。ブログ本文が入ります。<br>
-                ブログ本文が入ります。ブログ本文が入ります。ブログ本文が入ります。<br>
-                ブログ本文が入ります。ブログ本文が入ります。ブログ本文が入ります。
-            </p>
-        </div>
-    </div>
-</section>
+    </section>
 
 <section class="container mx-auto mt-5 px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <!-- More Posts -->
         <div class="text-center">
             <div class="morepostImgBox w-full h-48 rounded-lg overflow-hidden">
                 <img src="" alt="More Post Image" class="w-full h-full object-cover">

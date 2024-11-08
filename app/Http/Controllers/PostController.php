@@ -62,9 +62,10 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $post = Post::find($id); 
+        return view('layouts.detail',compact('post'));
     }
 
     /**
