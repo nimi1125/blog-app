@@ -62,9 +62,16 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $post = Post::find($id); 
+        if (is_null($post)) {
+            // データが見つからない場合の処理
+            return view('blog.detail', ['error' => 'データがありません']);
+        } else {
+            // データが見つかった場合の処理
+            return view('blog.detail',compact('post'));
+        }
     }
 
     /**
