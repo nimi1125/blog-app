@@ -65,12 +65,14 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id); 
+        //postsテーブルから最新の3件を取得する
+        $posts = Post::orderBy('id','desc')->take(3)->get();
         if (is_null($post)) {
             // データが見つからない場合の処理
             return view('blog.detail', ['error' => 'データがありません']);
         } else {
             // データが見つかった場合の処理
-            return view('blog.detail',compact('post'));
+            return view('blog.detail',compact('post','posts'));
         }
     }
 
