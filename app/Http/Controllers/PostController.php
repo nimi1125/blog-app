@@ -67,10 +67,10 @@ class PostController extends Controller
         $post = Post::find($id); 
         if (is_null($post)) {
             // データが見つからない場合の処理
-            return view('layouts.detail', ['error' => 'データがありません']);
+            return view('blog.detail', ['error' => 'データがありません']);
         } else {
             // データが見つかった場合の処理
-            return view('layouts.detail',compact('post'));
+            return view('blog.detail',compact('post'));
         }
     }
 
