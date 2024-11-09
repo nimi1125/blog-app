@@ -4,7 +4,7 @@
             <div class="blogDetailTitBox flex justify-between items-center">
                 <h2 class="text-2xl font-semibold">{{ $post->title }}</h2>
                 <div class="w-12 h-12 rounded-full overflow-hidden">
-                    <img src="{{ asset('storage/image/person.jpg') }}" alt="User Image" class="w-full h-full object-cover">
+                    <img src="{{ asset('img/person.jpg') }}" alt="User Image" class="w-full h-full object-cover">
                 </div>
             </div>
 
@@ -46,7 +46,6 @@
 </section>
 
 <section class="container mx-auto mt-5 px-4">
-    <!-- Comment Form -->
     <div class="flex items-start space-x-4">
         <div class="flex-grow">
             <textarea name="comment" class="w-full h-20 p-3 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Add a comment..."></textarea>
@@ -56,11 +55,11 @@
         </button>
     </div>
 
-    <!-- Comments Area -->
+
     <div class="commentArea mt-5 space-y-4">
         <div class="flex space-x-4 items-start">
             <div class="w-12 h-12 rounded-full overflow-hidden">
-                <img src="" alt="User Image" class="w-full h-full object-cover">
+                <img src="{{ asset('img/person.jpg') }}"" alt="User Image" class="w-full h-full object-cover">
             </div>
             <div class="flex-grow">
                 <div class="bg-gray-100 p-3 rounded-lg">
