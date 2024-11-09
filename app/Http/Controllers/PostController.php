@@ -65,7 +65,13 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id); 
-        return view('layouts.detail',compact('post'));
+        if (is_null($post)) {
+            // データが見つからない場合の処理
+            return view('layouts.detail', ['error' => 'データがありません']);
+        } else {
+            // データが見つかった場合の処理
+            return view('layouts.detail',compact('post'));
+        }
     }
 
     /**
