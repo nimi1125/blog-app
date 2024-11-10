@@ -10,21 +10,29 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+    private $post;
+    public function __construct(
+        Post $post,
+    )
+    {
+        $this->post = $post;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function home()
     {
-        $posts = Post::getPosts();
+        $posts = $this->post->getPosts();
         return view('home', compact('posts'));
     }
 
     public function mypage()
     {
-        if(Auth::check()){
-            $posts = Post::getPosts(Auth::id());
+        if (Auth::check()) {
+            $posts = $this->post->getPosts(Auth::id());
             return view('mypage', compact('posts'));
-        }else{
+        } else {
             return redirect()->route('home');
         }
     }
