@@ -15,16 +15,18 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::select('posts.*', 'users.name as user_name', 'categories.name as category_name')
+        $getPosts = Post::select('posts.*', 'users.name as user_name', 'categories.name as category_name')
             ->join('users', 'users.id', '=', 'posts.user_id')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
-            ->orderBy('posts.updated_at', 'desc')
-            ->paginate(9);
+            ->orderBy('posts.updated_at', 'desc');
 
         if (Auth::check()) {
-            return view('dashboard', compact('posts'));
+            $posts = $getPosts->where('posts.user_id', Auth::id())
+            ->paginate(9);
+            return view('mypage', compact('posts'));
         } else {
-            return view('welcome', compact('posts'));
+            $posts = $getPosts->paginate(9);
+            return view('home', compact('posts'));
         }
     }
 
