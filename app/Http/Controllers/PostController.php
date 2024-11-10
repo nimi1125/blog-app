@@ -64,16 +64,16 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id); 
-        //postsテーブルから最新の3件を取得する
-        $posts = Post::orderBy('id','desc')->take(3)->get();
+        $post = Post::find($id);
         if (is_null($post)) {
-            // データが見つからない場合の処理
             return view('blog.detail', ['error' => 'データがありません']);
-        } else {
-            // データが見つかった場合の処理
-            return view('blog.detail',compact('post','posts'));
-        }
+        } 
+        $posts = Post::where('user_id', $post->user_id)  
+                ->where('id', '<>', $id)            
+                ->orderBy('created_at', 'desc')     
+                ->take(3)                            
+                ->get();
+        return view('blog.detail', compact('post', 'posts'));
     }
 
     /**
