@@ -23,9 +23,11 @@ class PostController extends Controller
         if (Auth::check()) {
             $posts = $getPosts->where('posts.user_id', Auth::id())
             ->paginate(9);
+
             return view('mypage', compact('posts'));
         } else {
             $posts = $getPosts->paginate(9);
+
             return view('home', compact('posts'));
         }
     }
