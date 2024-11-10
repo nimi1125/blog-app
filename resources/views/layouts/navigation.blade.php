@@ -12,7 +12,10 @@
             <!-- Navigation Links -->
             <div class="shrink-0 flex items-center space-x-4 ml-auto">
                 <a href="{{ route('home') }}" class="text-white bg-black px-8 py-2 rounded-full hover:bg-gray-500">Home</a>
-                <a href="{{ route('write') }}" class="text-white bg-black px-8 py-2 rounded-full hover:bg-gray-500">Create</a>
+                @if(Auth::check())
+                    <a href="{{ route('mypage') }}" class="text-white bg-black px-8 py-2 rounded-full hover:bg-gray-500">MyPage</a>
+                    <a href="{{ route('write') }}" class="text-white bg-black px-8 py-2 rounded-full hover:bg-gray-500">Create</a>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->

@@ -13,22 +13,19 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function home()
     {
-        $getPosts = Post::select('posts.*', 'users.name as user_name', 'categories.name as category_name')
-            ->join('users', 'users.id', '=', 'posts.user_id')
-            ->join('categories', 'categories.id', '=', 'posts.category_id')
-            ->orderBy('posts.updated_at', 'desc');
+        $posts = Post::getPosts();
+        return view('home', compact('posts'));
+    }
 
-        if (Auth::check()) {
-            $posts = $getPosts->where('posts.user_id', Auth::id())
-            ->paginate(9);
-
+    public function mypage()
+    {
+        if(Auth::check()){
+            $posts = Post::getPosts(Auth::id());
             return view('mypage', compact('posts'));
-        } else {
-            $posts = $getPosts->paginate(9);
-
-            return view('home', compact('posts'));
+        }else{
+            return redirect()->route('home');
         }
     }
 
