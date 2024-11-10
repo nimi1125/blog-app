@@ -10,23 +10,30 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+    private $post;
+    public function __construct(
+        Post $post,
+    )
+    {
+        $this->post = $post;
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function home()
     {
-        $getPosts = Post::select('posts.*', 'users.name as user_name', 'categories.name as category_name')
-            ->join('users', 'users.id', '=', 'posts.user_id')
-            ->join('categories', 'categories.id', '=', 'posts.category_id')
-            ->orderBy('posts.updated_at', 'desc');
+        $posts = $this->post->getPosts();
+        return view('home', compact('posts'));
+    }
 
+    public function mypage()
+    {
         if (Auth::check()) {
-            $posts = $getPosts->where('posts.user_id', Auth::id())
-            ->paginate(9);
+            $posts = $this->post->getPosts(Auth::id());
             return view('mypage', compact('posts'));
         } else {
-            $posts = $getPosts->paginate(9);
-            return view('home', compact('posts'));
+            return redirect()->route('home');
         }
     }
 

@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/', [PostController::class, 'home'])->name('home');
 
-Route::get('/mypage', [PostController::class, 'index'])
+Route::get('/mypage', [PostController::class, 'mypage'])
     ->middleware(['auth', 'verified'])
     ->name('mypage');
 

@@ -18,6 +18,6 @@ class PostsTableSeeder extends Seeder
         DB::table('posts')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         
-        Post::factory()->count(30)->create();
+        Post::factory()->count(70)->create();
     }
 }

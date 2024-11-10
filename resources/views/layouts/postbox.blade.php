@@ -1,10 +1,3 @@
-<div class="container mx-auto mt-5 mb-5">
-    <div class="flex space-x-2">
-        <input type="search" id="site-search" name="q" class="border border-gray-300 rounded-md p-2 flex-grow" placeholder="Search"/>
-        <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Search</button>
-    </div>
-</div>
-
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-5 px-7">
     @foreach($posts as $post)
         <div class="postBox bg-white rounded-lg h-96">
