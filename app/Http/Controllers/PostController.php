@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Category; 
 use App\Http\Requests\PostRequest; 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -51,21 +52,17 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        // 画像処理は後ほど追加するため、デフォルトの画像パスが追加されるように調整
-        if ($request->hasFile('image_path')) {
-            $imagePath = $request->file('image_path')->store('images', 'public');
-        } else {
-            $imagePath = 'images/default.jpg'; 
-        }
-
+        $imagePath = $request->file('image_path')->store('images', 'public');
+        $imageUrl = Storage::url($imagePath);
+        
         $post = new post;
         $post->user_id = auth()->id();
         $post->title = $request->title;
         $post->content = $request->content;
         $post->category_id = $request->category_id;
-        $post->image_path = $imagePath;
+        $post->image_path = $imageUrl;
         $post->save();
-        return redirect()->route('dashboard');
+        return redirect()->route('home');
     }
 
     /**
