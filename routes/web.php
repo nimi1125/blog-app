@@ -37,9 +37,9 @@ Route::get('/blog', function () {
 });
 
 Route::get('blog/detail/{id}', [\App\Http\Controllers\PostController::class, 'show'])->name('detail');
+Route::post('blog/detail/{id}', [\App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');
 
 Route::get('/write', [\App\Http\Controllers\PostController::class, 'create'])->name('write');
-
 Route::post('/write', [\App\Http\Controllers\PostController::class, 'store'])->name('store');
 
 Route::get('/myblog', function () {
