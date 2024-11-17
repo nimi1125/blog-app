@@ -71,24 +71,24 @@ class PostController extends Controller
      */
     public function show($id)
     {
-    $post = Post::find($id);
+        $post = Post::find($id);
 
-    if (is_null($post)) {
-        return view('blog.detail', ['error' => 'データがありません']);
-    } 
+        if (is_null($post)) {
+            return view('blog.detail', ['error' => 'データがありません']);
+        } 
 
-    $posts = Post::where('user_id', $post->user_id)  
+        $posts = Post::where('user_id', $post->user_id)  
                 ->where('id', '<>', $id)            
                 ->orderBy('created_at', 'desc')     
                 ->take(3)                            
                 ->get();
 
-    $comments = Comment::where('post_id', $id)
+        $comments = Comment::where('post_id', $id)
                 ->orderBy('created_at', 'desc')
                 ->with('user') 
                 ->get();
 
-    return view('blog.detail', compact('post', 'posts', 'comments'));
+        return view('blog.detail', compact('post', 'posts', 'comments'));
     }
 
     /**
