@@ -31,7 +31,7 @@
             <h3 class="text-xl mb-2">More Post</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 @foreach($posts as $post)
-                    <a href='{{ route('detail',$post) }}' class="text-center block text-black hover:opacity-5">
+                    <a href='{{ route('detail',$post) }}' class="text-center block text-black hover:opacity-8">
                         <div class="morepostImgBox w-full h-48 rounded-lg overflow-hidden">
                             <img src="{{ asset($post->image_path) }}" alt="More Post Image" class="w-full h-full object-cover">
                         </div>
@@ -42,6 +42,7 @@
         </section>
 
         <section class="container mx-auto mt-5 px-4">
+            <h3 class="text-xl mb-2">Comments</h3>
             <div class="flex items-start space-x-4">
                 <form method="post" action="{{ route('comment.store', ['id' => $post->id]) }}" enctype="multipart/form-data" class="w-full">
                     @csrf
@@ -59,20 +60,31 @@
                 </form>
             </div>
 
-
-            <div class="commentArea mt-5 space-y-4">
-                <div class="flex space-x-4 items-start">
-                    <div class="w-12 h-12 rounded-full overflow-hidden">
-                        <img src="{{ asset('img/person.jpg') }}"" alt="User Image" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex-grow">
-                        <div class="bg-gray-100 p-3 rounded-lg">
-                            <p class="text-gray-700">コメントコメントコメントコメントコメント</p>
-                        </div>
-                        <p class="text-xs text-gray-500 mt-1">a min ago</p>
+            @if($comments->isNotEmpty())
+                <div class="commentArea rounded-lg">
+                    <div class="commentBox h-full py-2 px-4 mt-5 space-y-4 bg-white overflow-y-scroll">
+                        @foreach($comments as $comment)
+                            <div class="flex space-x-4 items-start py-2 px-4">
+                                <div class="w-12 h-12 rounded-full overflow-hidden">
+                                    <img src="{{ asset('img/person.jpg') }}" alt="User Image" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="commentContentBox relative bg-gray-100 p-3 rounded-lg">
+                                        <p class="text-gray-700">
+                                            {{ $comment->content }}
+                                        </p>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">Posted by {{ $comment->user->name ?? 'Unknown User' }}</p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
+            @else
+                <p class="text-center text-gray-500 mt-5 py-2 px-4">コメントはまだありません。</p>
+            @endif
         </section>
     @endif
 </x-app-layout>
+
+
