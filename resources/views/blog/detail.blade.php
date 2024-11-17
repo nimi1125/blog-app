@@ -42,6 +42,7 @@
         </section>
 
         <section class="container mx-auto mt-5 px-4">
+            <h3 class="text-xl mb-2">Comments</h3>
             <div class="flex items-start space-x-4">
                 <form method="post" action="{{ route('comment.store', ['id' => $post->id]) }}" enctype="multipart/form-data" class="w-full">
                     @csrf
