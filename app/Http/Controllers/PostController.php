@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category; 
+use App\Models\Comment; 
 use App\Http\Requests\PostRequest; 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -43,7 +44,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::all()->orderBy('created_at', 'desc');
         return view('blog.write', compact('categories'));
     }
 
@@ -70,16 +71,24 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        if (is_null($post)) {
-            return view('blog.detail', ['error' => 'データがありません']);
-        } 
-        $posts = Post::where('user_id', $post->user_id)  
+    $post = Post::find($id);
+
+    if (is_null($post)) {
+        return view('blog.detail', ['error' => 'データがありません']);
+    } 
+
+    $posts = Post::where('user_id', $post->user_id)  
                 ->where('id', '<>', $id)            
                 ->orderBy('created_at', 'desc')     
                 ->take(3)                            
                 ->get();
-        return view('blog.detail', compact('post', 'posts'));
+
+    $comments = Comment::where('post_id', $id)
+                ->orderBy('created_at', 'desc')
+                ->with('user') 
+                ->get();
+
+    return view('blog.detail', compact('post', 'posts', 'comments'));
     }
 
     /**
