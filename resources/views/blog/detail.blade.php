@@ -47,6 +47,9 @@
                 <form method="post" action="{{ route('comment.store', ['id' => $post->id]) }}" enctype="multipart/form-data" class="w-full">
                     @csrf
                     <div class="flex-grow">
+                        @error('content')
+                            <div class="alert alert-success p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400">{{ $message }}</div>
+                        @enderror
                         @if (session('success'))
                             <div class="alert alert-success p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
                                 {{ session('success') }}
