@@ -23,10 +23,19 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function home()
+    public function home(Request $request)
     {
-        $posts = $this->post->getPosts();
-        return view('home', compact('posts'));
+        $search = $request->input('search', '');
+
+        if($search){
+            $posts = $this->post->where('title', 'like', "%{$search}%")
+                                ->orWhere('content', 'like', "%{$search}%")
+                                ->paginate(9)
+                                ->withQueryString();
+        }else{
+            $posts = $this->post->getPosts();
+        }
+        return view('home', compact('posts', 'search'));
     }
 
     public function mypage()
@@ -44,7 +53,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::all()->orderBy('created_at', 'desc');
+        $categories = Category::orderBy('created_at', 'desc')->get();
         return view('blog.write', compact('categories'));
     }
 
