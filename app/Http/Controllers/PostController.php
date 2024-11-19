@@ -25,17 +25,17 @@ class PostController extends Controller
      */
     public function home(Request $request)
     {
-        $q = $request->input('q', '');
+        $search = $request->input('search', '');
 
-        if($q){
-            $posts = $this->post->where('title', 'like', "%{$q}%")
-                                ->orWhere('content', 'like', "%{$q}%")
+        if($search){
+            $posts = $this->post->where('title', 'like', "%{$search}%")
+                                ->orWhere('content', 'like', "%{$search}%")
                                 ->paginate(9)
                                 ->withQueryString();
         }else{
             $posts = $this->post->getPosts();
         }
-        return view('home', compact('posts', 'q'));
+        return view('home', compact('posts', 'search'));
     }
 
     public function mypage()
