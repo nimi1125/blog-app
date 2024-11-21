@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,11 +37,11 @@ Route::get('/blog', function () {
     return view('welcome');
 });
 
-Route::get('blog/detail/{id}', [\App\Http\Controllers\PostController::class, 'show'])->name('detail');
-Route::post('blog/detail/{id}', [\App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');
+Route::get('blog/detail/{id}', [PostController::class, 'show'])->name('detail');
+Route::post('blog/detail/{id}', [CommentController::class, 'store'])->name('comment.store');
 
-Route::get('/write', [\App\Http\Controllers\PostController::class, 'create'])->name('write');
-Route::post('/write', [\App\Http\Controllers\PostController::class, 'store'])->name('store');
+Route::get('/write', [PostController::class, 'create'])->name('write');
+Route::post('/write', [PostController::class, 'store'])->name('store');
 
 Route::get('/myblog', function () {
     return view('layouts.myblog');

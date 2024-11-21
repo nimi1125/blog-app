@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
     private $post;
+
     public function __construct(
         Post $post,
     )
@@ -27,14 +28,15 @@ class PostController extends Controller
     {
         $search = $request->input('search', '');
 
-        if($search){
+        if ($search) {
             $posts = $this->post->where('title', 'like', "%{$search}%")
                                 ->orWhere('content', 'like', "%{$search}%")
                                 ->paginate(9)
                                 ->withQueryString();
-        }else{
+        } else { 
             $posts = $this->post->getPosts();
         }
+
         return view('home', compact('posts', 'search'));
     }
 
@@ -98,29 +100,5 @@ class PostController extends Controller
                 ->get();
 
         return view('blog.detail', compact('post', 'posts', 'comments'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
