@@ -4,8 +4,8 @@
     @else
         @foreach($posts as $post)
             <a href="{{ route('detail', $post->id) }}" class="postBox bg-white rounded-lg h-96">
-                <div class="postImgItem overflow-hidden w-64 h-32">
-                    <img src="{{ $post->image_path }}" alt="{{ $post->title }}" class="object-contain w-full h-full">
+                <div class="postImgItem overflow-hidden w-full h-32">
+                    <img src="{{ $post->image_path }}" alt="{{ $post->title }}" class="object-cover w-full h-full">
                 </div>
                 <div class="postTxtItem p-4">
                     <div class="flex justify-between items-center">
