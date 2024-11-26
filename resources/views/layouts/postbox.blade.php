@@ -3,7 +3,7 @@
         <p>該当データがありません。</p>
     @else
         @foreach($posts as $post)
-            <div class="postBox bg-white rounded-lg h-96">
+            <a href="{{ route('detail', $post->id) }}" class="postBox bg-white rounded-lg h-96">
                 <div class="postImgItem overflow-hidden w-64 h-32">
                     <img src="{{ $post->image_path }}" alt="{{ $post->title }}" class="object-contain w-full h-full">
                 </div>
@@ -20,7 +20,7 @@
                         <p class="text-gray-700">{{ $post->content }}</p>
                     </div>
                 </div>
-            </div>
+            </a>
         @endforeach
     @endif
 </div>
