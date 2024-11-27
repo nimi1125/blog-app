@@ -22,6 +22,11 @@ class Post extends Model
         return $this->hasOne(category::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function getPosts($userId = null)
     {
         $posts = Post::select('posts.*', 'users.name as user_name', 'categories.name as category_name')

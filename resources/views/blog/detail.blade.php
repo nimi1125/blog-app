@@ -30,12 +30,12 @@
         <section class="container mx-auto mt-5 px-4">
             <h3 class="text-xl mb-2">More Post</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                @foreach($posts as $post)
-                    <a href='{{ route('detail',$post) }}' class="text-center block text-black hover:opacity-8">
+                @foreach($posts as $item)
+                    <a href='{{ route('detail',$item) }}' class="text-center block text-black hover:opacity-8">
                         <div class="morepostImgBox w-full h-48 rounded-lg overflow-hidden">
-                            <img src="{{ asset($post->image_path) }}" alt="More Post Image" class="w-full h-full object-cover">
+                            <img src="{{ asset($item->image_path) }}" alt="More Post Image" class="w-full h-full object-cover">
                         </div>
-                        <h4 class="text-lg font-medium mt-2">{{ $post->title }}</h4>
+                        <h4 class="text-lg font-medium mt-2">{{ $item->title }}</h4>
                     </a>
                 @endforeach
             </div>
