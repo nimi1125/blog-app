@@ -67,8 +67,8 @@ class PostController extends Controller
         $image = $request->file('image_path');
         $imageName = time() . '-' . $image->getClientOriginalName();
         $image->move(public_path('img'),  $imageName);
-        $imageUrl = asset('img/' . $imageName);
-        
+        $imageUrl = 'img/' . $imageName;        
+
         $post = new post;
         $post->user_id = auth()->id();
         $post->title = $request->title;
