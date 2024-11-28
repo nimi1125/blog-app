@@ -14,10 +14,10 @@ class CommentsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('comments')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        // DB::table('comments')->truncate();
+        // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         
-        Comment::factory()->count(15)->create();
+        // Comment::factory()->count(15)->create();
     }
 }

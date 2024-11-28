@@ -14,10 +14,16 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('categories')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-        
-        Category::factory()->count(10)->create();
+        Category::create([
+            'name' => 'ビーチリゾート',
+        ]);
+
+        Category::create([
+            'name' => '歴史・文化',
+        ]);
+
+        Category::create([
+            'name' => '自然・アウトドア',
+        ]);
     }
 }
