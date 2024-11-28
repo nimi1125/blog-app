@@ -21,7 +21,7 @@
 
                 <div class="blogDetailTxtBox mt-5">
                     <p class="text-gray-700 leading-relaxed mt-2">
-                        {{ $post->content }}
+                        {!! nl2br(htmlspecialchars($post->content)) !!}
                     </p>
                 </div>
             </div>
@@ -40,6 +40,7 @@
                 @endforeach
             </div>
         </section>
+
 
         <section class="container mx-auto mt-5 px-4">
             <h3 class="text-xl mb-2">Comments</h3>
