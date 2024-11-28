@@ -27,8 +27,7 @@
             </div>
         </section>
 
-        @if($posts->isNotEmpty())
-        
+        @if($posts->isNotEmpty())        
             <section class="container mx-auto mt-5 px-4">
                 <h3 class="text-xl mb-2">More Post</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
