@@ -27,20 +27,22 @@
             </div>
         </section>
 
-        <section class="container mx-auto mt-5 px-4">
-            <h3 class="text-xl mb-2">More Post</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                @foreach($posts as $item)
-                    <a href='{{ route('detail',$item) }}' class="text-center block text-black hover:opacity-8">
-                        <div class="morepostImgBox w-full h-48 rounded-lg overflow-hidden">
-                            <img src="{{ asset($item->image_path) }}" alt="More Post Image" class="w-full h-full object-cover">
-                        </div>
-                        <h4 class="text-lg font-medium mt-2">{{ $item->title }}</h4>
-                    </a>
-                @endforeach
-            </div>
-        </section>
-
+        @if($posts->isNotEmpty())
+        
+            <section class="container mx-auto mt-5 px-4">
+                <h3 class="text-xl mb-2">More Post</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    @foreach($posts as $item)
+                        <a href='{{ route('detail',$item) }}' class="text-center block text-black hover:opacity-8">
+                            <div class="morepostImgBox w-full h-48 rounded-lg overflow-hidden">
+                                <img src="{{ asset($item->image_path) }}" alt="More Post Image" class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="text-lg font-medium mt-2">{{ $item->title }}</h4>
+                        </a>
+                    @endforeach
+                </div>
+            </section>
+        @endif
 
         <section class="container mx-auto mt-5 px-4">
             <h3 class="text-xl mb-2">Comments</h3>
@@ -75,7 +77,7 @@
                                 <div class="flex-grow">
                                     <div class="commentContentBox relative bg-gray-100 p-3 rounded-lg">
                                         <p class="text-gray-700">
-                                            {{ $comment->content }}
+                                            {!! nl2br(htmlspecialchars($comment->content)) !!}
                                         </p>
                                     </div>
                                     <p class="text-xs text-gray-500 mt-1">Posted by {{ $comment->user->name ?? 'Unknown User' }}</p>
