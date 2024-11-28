@@ -64,9 +64,11 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $imagePath = $request->file('image_path')->store('images', 'public');
-        $imageUrl = Storage::url($imagePath);
-        
+        $image = $request->file('image_path');
+        $imageName = time() . '-' . $image->getClientOriginalName();
+        $image->move(public_path('img'),  $imageName);
+        $imageUrl = 'img/' . $imageName;        
+
         $post = new post;
         $post->user_id = auth()->id();
         $post->title = $request->title;
