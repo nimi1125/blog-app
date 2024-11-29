@@ -15,8 +15,8 @@
                     </div>
                 </div>
 
-                <div class="blogDetailImgBox mt-5">
-                    <img src="{{ asset($post->image_path) }}" alt="Blog Image" class="w-full h-72 object-cover rounded-lg">
+                <div class="blogDetailImgBox mt-5 h-72">
+                    <img src="{{ asset($post->image_path) }}" alt="Blog Image" class="w-full h-full object-cover rounded-lg">
                 </div>
 
                 <div class="blogDetailTxtBox mt-5">
