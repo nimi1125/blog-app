@@ -1,40 +1,42 @@
 {
-    "version": 2,
-    "builds": [
-        {
-          "src": "api/index.php",
-          "use": "vercel-php@0.6.0",
-          "config": {
-            "phpVersion": "8.1"
-          }
-        },
-        {
-          "src": "public/**",
-          "use": "vercel-php@0.6.0",
-          "config": {
-            "phpVersion": "8.1"
-          }
-        }
-      ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/api/index.php"
-        }
-    ],
-    "buildCommand": "./.vercel/build.sh",
-    "outputDirectory": "public",
-    "env": {
-        "APP_NAME": "Laravel Vercel",
-        "APP_DEBUG": "false",
-        "APP_CONFIG_CACHE": "/tmp/config.php",
-        "APP_EVENTS_CACHE": "/tmp/events.php",
-        "APP_PACKAGES_CACHE": "/tmp/packages.php",
-        "APP_ROUTES_CACHE": "/tmp/routes.php",
-        "APP_SERVICES_CACHE": "/tmp/services.php",
-        "CACHE_DRIVER": "array",
-        "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie",
-        "VIEW_COMPILED_PATH": "/tmp"
-    }
+  "version": 2,
+  "framework": null,
+  "functions": {
+      "api/index.php": { "runtime": "vercel-php@0.6.2" }
+  },
+  "routes": [
+      {
+          "src": "/build/assets/(.*)",
+          "dest": "/public/build/assets/$1"
+      },
+      {
+          "src": "/img/(.*)",
+          "dest": "/public/img/$1"
+      },
+      {
+          "src": "/favicon.ico",
+          "dest": "/public/favicon.ico"
+      },
+      {
+          "src": "/(.*)",
+          "dest": "/api/index.php"
+      }
+  ],
+  "env": {
+      "APP_ENV": "production",
+      "APP_DEBUG": "true",
+      "APP_NAME": "Laravel Vercel",
+      "APP_KEY": "base64:vN8nSQmAmPMcam8KRNVj3/hFV4ZVG+uyUQHYVL2x4k4=",
+      "APP_URL": "https://blog-app.vercel.app",
+      "APP_CONFIG_CACHE": "/tmp/config.php",
+      "APP_EVENTS_CACHE": "/tmp/events.php",
+      "APP_PACKAGES_CACHE": "/tmp/packages.php",
+      "APP_ROUTES_CACHE": "/tmp/routes.php",
+      "APP_SERVICES_CACHE": "/tmp/services.php",
+      "CACHE_DRIVER": "array",
+      "CACHE_STORE": "array",
+      "LOG_CHANNEL": "stderr",
+      "SESSION_DRIVER": "cookie",
+      "VIEW_COMPILED_PATH": "/tmp"
+  }
 }
